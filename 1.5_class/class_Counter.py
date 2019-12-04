@@ -1,9 +1,17 @@
 class Counter:
-	def __init__(self, start=0):
+	def __init__(self):
+		self.count = 0
+
+	def inc(self):
+		self.count += 1
+	def reset(self):
 		self.count = 0
 
 Counter # class object
-x1 = Counter(10)
 x = Counter()
-print(x.count) #0
-x.count += 1
+x.inc() # тоже самое, что Counter.inc(x)
+print(x.count)
+Counter.inc(x)
+print(x.count)
+x.reset()
+print(x.count)
