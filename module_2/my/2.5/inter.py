@@ -1,0 +1,11 @@
+x = input().split()
+n, k = map(int, x)
+print(x)
+print(n + k)
+
+y = input().split()
+map_obj = map(int, y)
+print(map_obj)
+s = next(map_obj)
+u = next(map_obj)
+print(s + u)
