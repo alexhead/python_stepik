@@ -2,13 +2,10 @@
 def divide(x, y): 
 	try:
 		result = x / y
-	except ZeroDivisionError:
-		print("division by zero")
-	else:
-		print("result is", result)
+	except:
+		print("Error")
 	finally:
 		print("finaly")
 
-divide(2, 1)
-divide(2, 0)
-divide(2, [])
+for i in range(5):
+	divide(int(input()), int(input()))
