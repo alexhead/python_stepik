@@ -5,17 +5,14 @@ import re
 # print(re.findall)
 # print(re.sub)
 
-pattern = r"abc"
-string = "abcd"
+
+
+pattern = r"a[a-zA-Z]c"
+string = "aacd, acc, aac, azc"
 match_object = re.match(pattern, string)
 print(match_object)
 
-pattern = r"a[abc]c"
-string = "aacd"
-match_object = re.match(pattern, string)
-print(match_object)
-
-string = "abc, acc, aac"
+string = "abc, acc, aac, azc"
 all_inclusions = re.findall(pattern, string)
 print(all_inclusions)
 
