@@ -2,14 +2,15 @@ import re
 import sys
 import requests
 
+def func_del_pair(l):
+    n = []
+    for i in l:
+        if i not in n:
+            n.append(i)
+    return n
 
 res = requests.get(str(input()))
-
-# print(res.status_code)
-# print(res.headers['Content-Type'])
-
-# print(res.content)
-# print(res.text)
+spis = []
 
 with open("python.html", "wb") as f:
     f.write(res.content)
@@ -17,20 +18,37 @@ with open("python.html", "wb") as f:
 f = open("python.html")
 for line in f:
     line = line.rstrip()
-    pattern = r"a\s\bhref=\w*"
-
-
+    pattern = r'<a\s.*\bhref=[\'\"][aA-zZ]'
     all_inclusions = re.findall(pattern, line)
-
 
     if len(all_inclusions) >= 1:
 
-        pattern = r"[=]\w*"
-        #pattern = r"=\w*"
-        in_cut = re.findall(pattern, line)
-        if len(in_cut) >= 1:
-            print(line)
+        pattern = r'.*a.*href=[\"\']'
+        repl = ""
+        line = re.sub(pattern, repl, line, count=0)
+
+        pattern = r'http[s]?[\:][\/][\/]'
+        repl = ""
+        line = re.sub(pattern, repl, line, count=0)
+
+        pattern = r'[f][t][p][\:][\/][\/]'
+        repl = ""
+        line = re.sub(pattern, repl, line, count=0)
+
+        pattern = r'[/\:\"\'].*'
+        repl = ""
+        line = re.sub(pattern, repl, line, count=0)
+        spis.append(line)
+
 
 f.close()
+a = func_del_pair(spis)
+a = sorted(a)
+
+for i in range(len(a)):
+   print(a[i])
+
+
+
 
 

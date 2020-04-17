@@ -12,7 +12,7 @@ string = "aacd, acc, aac, azc"
 match_object = re.match(pattern, string)
 print(match_object)
 
-string = "abc, acc, aac, azc"
+string = "abxcsac, acc, aac, azc"
 all_inclusions = re.findall(pattern, string)
 print(all_inclusions)
 
