@@ -22,7 +22,7 @@ for line in f:
     all_inclusions = re.findall(pattern, line)
 
     if len(all_inclusions) >= 1:
-
+        #print(line)
         pattern = r'.*a.*href=[\"\']'
         repl = ""
         line = re.sub(pattern, repl, line, count=0)
@@ -34,12 +34,12 @@ for line in f:
         pattern = r'[f][t][p][\:][\/][\/]'
         repl = ""
         line = re.sub(pattern, repl, line, count=0)
-
+        #print(line)
         pattern = r'[/\:\"\'].*'
         repl = ""
         line = re.sub(pattern, repl, line, count=0)
         spis.append(line)
-
+       # print(line)
 
 f.close()
 a = func_del_pair(spis)
@@ -47,7 +47,6 @@ a = sorted(a)
 
 for i in range(len(a)):
    print(a[i])
-
 
 
 
